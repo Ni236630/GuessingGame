@@ -30,10 +30,10 @@ void Main()
 }
 
 void UserGuess(){
-    int SecretNumber = 42;
+    int SecretNumber = new Random().Next(101);
     int MaxGuesses = 4;
     int RemainingGuesses = 4;
-
+    
     Console.WriteLine("Please enter a number:");
     string UserGuessInput = Console.ReadLine();
     
@@ -46,10 +46,24 @@ void UserGuess(){
         }
         else
         {
-        RemainingGuesses--;
-        Console.WriteLine($"You guessed...poorly and have {RemainingGuesses} guesses remaining.");
-        Console.WriteLine("Please enter another number:");
-        UserGuessInput = Console.ReadLine();
+            if ( SecretNumber > Int32.Parse(UserGuessInput) )
+            {
+                Console.WriteLine("Your guess was too low.");
+
+                RemainingGuesses--;
+                Console.WriteLine($"You guessed...poorly and have {RemainingGuesses} guesses remaining.");
+                Console.WriteLine("Please enter another number:");
+                UserGuessInput = Console.ReadLine();
+              
+            }
+            else {
+                Console.WriteLine("Your guess was too high");
+
+                RemainingGuesses--;
+                Console.WriteLine($"You guessed...poorly and have {RemainingGuesses} guesses remaining.");
+                Console.WriteLine("Please enter another number:");
+                UserGuessInput = Console.ReadLine();
+            }
         } 
     }
     
