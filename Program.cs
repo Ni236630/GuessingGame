@@ -182,11 +182,12 @@ void HardMode(){
 void CheaterMode(){
     int SecretNumber = new Random().Next(101);
     
-    Console.WriteLine("Don't like the constraints of limited guessing? Here in Free Play mode you'll have unlimited guesses to guess the *secret number*!")
+    Console.WriteLine(@"Don't like the constraints of limited guessing? 
+    Here in Free Play mode you'll have unlimited guesses to guess the *secret number*!");
     Console.WriteLine("Please enter a number:");
     string UserGuessInput = Console.ReadLine();
     
-    for(int i = 1; i > 0; i++){
+    while (Int32.Parse(UserGuessInput) != SecretNumber){
         
        if( Int32.Parse(UserGuessInput) == SecretNumber){
         Console.Write("Congratulations! You guessed Correctly!");
